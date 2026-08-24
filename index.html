@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>A Little Something For You ❤️</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #fff7fa, transparent 40%),
+        linear-gradient(135deg, #ffeef4, #ffdce8, #fff5f8);
+      color: #4a2430;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 35px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    /* ---------------- SCREENS ---------------- */
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------------- TEXT ---------------- */
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      color: #8a5261;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #9a6b77;
+    }
+
+    /* ---------------- EMOJIS ---------------- */
+
+    .emoji {
+      font-size: 75px;
+      margin-bottom: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* ---------------- CARD ---------------- */
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 28px 20px;
+      box-shadow:
+        0 20px 50px rgba(151, 60, 90, 0.16);
+      margin-top: 20px;
+    }
+
+    /* ---------------- BUTTONS ---------------- */
+
+    button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 18px;
+      padding: 14px 20px;
+      margin: 7px;
+      transition: 0.2s ease;
+      font-family: inherit;
+    }
+
+    button:active {
+      transform: scale(0.93);
+    }
+
+    .primary {
+      background: linear-gradient(
+        135deg,
+        #ff5c8a,
+        #ff477d
+      );
+
+      color: white;
+
+      box-shadow:
+        0 9px 22px rgba(255, 92, 138, 0.3);
+    }
+
+    .secondary {
+      background: #ffe0e9;
+      color: #b52f58;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 15px;
+    }
+
+    /* ---------------- HEARTS ---------------- */
+
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      animation: heartFloat linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes heartFloat {
+
+      from {
+        transform:
+          translateY(0)
+          rotate(0deg);
+
+        opacity: 1;
+      }
+
+      to {
+        transform:
+          translateY(-110vh)
+          rotate(360deg);
+
+        opacity: 0;
+      }
+
+    }
+
+    /* ---------------- PETS ---------------- */
+
+    .pets {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0;
+    }
+
+    .pet {
+      font-size: 75px;
+      animation: petBounce 2s infinite;
+    }
+
+    .pet:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes petBounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform:
+          translateY(-10px)
+          rotate(3deg);
+      }
+
+    }
+
+    .pet-name {
+      font-size: 14px;
+      color: #a55b6e;
+      margin-top: -5px;
+    }
+
+    /* ---------------- MESSAGE ---------------- */
+
+    .message {
+      background: #fff3f7;
+      border-radius: 20px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 20px 0;
+
+      min-height: 110px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: pre-line;
+    }
+
+    /* ---------------- CHOCOLATE ---------------- */
+
+    .chocolate {
+      font-size: 100px;
+      animation: chocolateShake 0.5s infinite alternate;
+    }
+
+    @keyframes chocolateShake {
+
+      from {
+        transform: rotate(-5deg);
+      }
+
+      to {
+        transform: rotate(5deg);
+      }
+
+    }
+
+    /* ---------------- HUG ---------------- */
+
+    .hug {
+      font-size: 120px;
+      animation: hug 1.3s infinite;
+    }
+
+    @keyframes hug {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+
+    }
+
+    /* ---------------- MUSIC ---------------- */
+
+    .music-box {
+      background:
+        linear-gradient(
+          135deg,
+          #ff719b,
+          #ff477a
+        );
+
+      color: white;
+
+      padding: 24px 16px;
+
+      border-radius: 25px;
+
+      margin: 20px 0;
+
+      box-shadow:
+        0 15px 35px rgba(255, 71, 122, 0.25);
+    }
+
+    .music-icon {
+      font-size: 60px;
+      animation: music 1s infinite alternate;
+    }
+
+    @keyframes music {
+
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.12);
+      }
+
+    }
+
+    .music-box iframe {
+      display: block;
+      margin: 15px auto 0;
+      width: 100%;
+      max-width: 660px;
+      border-radius: 10px;
+    }
+
+    /* ---------------- LETTER ---------------- */
+
+    .letter {
+      background: #fffaf0;
+      padding: 25px;
+      border-radius: 10px;
+
+      text-align: left;
+
+      box-shadow:
+        0 10px 30px rgba(90, 60, 30, 0.12);
+
+      font-family: Georgia, serif;
+
+      line-height: 1.8;
+
+      position: relative;
+    }
+
+    .letter::before {
+      content: "💌";
+
+      position: absolute;
+
+      right: 15px;
+      top: -25px;
+
+      font-size: 42px;
+    }
+
+    .letter p {
+      font-size: 16px;
+    }
+
+    /* ---------------- SURPRISE ---------------- */
+
+    .surprise-box {
+      min-height: 180px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-direction: column;
+    }
+
+    .surprise-emoji {
+      font-size: 90px;
+
+      animation:
+        surprise 1s ease;
+    }
+
+    @keyframes surprise {
+
+      0% {
+        transform:
+          scale(0)
+          rotate(-30deg);
+      }
+
+      70% {
+        transform:
+          scale(1.2)
+          rotate(10deg);
+      }
+
+      100% {
+        transform:
+          scale(1)
+          rotate(0);
+      }
+
+    }
+
+    /* ---------------- FOREVER ---------------- */
+
+    .forever {
+      font-size: 85px;
+
+      animation:
+        heartbeat 1.2s infinite;
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+    }
+
+    .yes-button {
+      background: #ff477e;
+      color: white;
+
+      font-size: 19px;
+
+      padding:
+        16px 30px;
+
+      box-shadow:
+        0 10px 25px
+        rgba(255, 71, 126, 0.35);
+    }
+
+    .no-button {
+      background: #eeeeee;
+      color: #777777;
+      font-size: 14px;
+    }
+
+    /* ---------------- CONFETTI ---------------- */
+
+    .confetti {
+      position: fixed;
+
+      width: 10px;
+      height: 10px;
+
+      top: -20px;
+
+      animation:
+        confettiFall 3s linear forwards;
+
+      z-index: 10;
+    }
+
+    @keyframes confettiFall {
+
+      to {
+
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+
+        opacity: 0;
+
+      }
+
+    }
+
+    /* ---------------- PROGRESS ---------------- */
+
+    .progress {
+      width: 100%;
+      height: 5px;
+
+      background: #ffd8e3;
+
+      border-radius: 10px;
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      z-index: 20;
+    }
+
+    .progress-bar {
+      height: 100%;
+
+      width: 0%;
+
+      background: #ff5c8a;
+
+      transition:
+        width 0.5s ease;
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 420px) {
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .card {
+        padding: 24px 16px;
+      }
+
+      .emoji {
+        font-size: 65px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 13px 17px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- Progress -->
+
+  <div class="progress">
+
+    <div
+      class="progress-bar"
+      id="progressBar">
+    </div>
+
+  </div>
+
+
+  <div class="page">
+
+    <div class="container">
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 1 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen active"
+        id="screen1">
+
+        <div class="emoji">
+          🌸
+        </div>
+
+        <h1>
+          Hey You ❤️
+        </h1>
+
+        <p class="subtitle">
+          I know today isn't exactly
+          your favorite day...
+        </p>
+
+        <div class="card">
+
+          <p>
+            So I made a tiny little
+            happiness machine
+            especially for you. 🥹
+          </p>
+
+          <p>
+            It contains love,
+            nonsense, hugs,
+            chocolate and two
+            extremely cute idiots. 😌
+          </p>
+
+          <button
+            class="primary"
+            onclick="nextScreen()">
+
+            Open Your Surprise 💗
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 2 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen2">
+
+        <div class="emoji">
+          🐱🐶
+        </div>
+
+        <h2>
+          Meet Your Support Team
+        </h2>
+
+        <p>
+          They've been waiting all day
+          to make you smile.
+        </p>
+
+
+        <div class="pets">
+
+          <div>
+
+            <div class="pet">
+              🐱
+            </div>
+
+            <div class="pet-name">
+              Ollie
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="pet">
+              🐶
+            </div>
+
+            <div class="pet-name">
+              Chaarvi
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div
+            class="message"
+            id="petMessage">
+
+            Ollie says:
+
+            "You are officially
+            too cute today." ❤️
+
+          </div>
+
+
+          <div class="buttons">
+
+            <button
+              class="secondary"
+              onclick="petMessage()">
+
+              Pet Ollie 🐱
+
+            </button>
+
+
+            <button
+              class="secondary"
+              onclick="dogMessage()">
+
+              Hug Chaarvi 🐶
+
+            </button>
+
+          </div>
+
+
+          <button
+            class="primary"
+            onclick="nextScreen()">
+
+            Continue ❤️
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 3 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen3">
+
+        <div class="chocolate">
+          🍫
+        </div>
+
+        <h2>
+          Emergency Chocolate Delivery
+        </h2>
+
+        <p>
+          Because sometimes chocolate
+          is basically emotional first aid. 😌
+        </p>
+
+
+        <div class="card">
+
+          <div
+            class="message"
+            id="chocolateMessage">
+
+            Tap the button.
+
+            Your emergency chocolate
+            is coming...
+
+          </div>
+
+
+          <button
+            class="primary"
+            onclick="chocolateRain()">
+
+            SEND CHOCOLATE 🍫
+
+          </button>
+
+
+          <button
+            class="secondary"
+            onclick="nextScreen()">
+
+            I ate it. Next 😌
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 4 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen4">
+
+        <div class="hug">
+          🤗
+        </div>
+
+        <h2>
+          Emergency Hug
+        </h2>
+
+        <p>
+          No questions.
+          No advice.
+
+          Just a very long hug. 🫂
+        </p>
+
+
+        <div class="card">
+
+          <div
+            class="message"
+            id="hugMessage">
+
+            Press the button
+            for your hug.
+
+          </div>
+
+
+          <button
+            class="primary"
+            onclick="giveHug()">
+
+            GIVE ME A HUG 🫂
+
+          </button>
+
+
+          <button
+            class="secondary"
+            onclick="nextScreen()">
+
+            Okay I'm smiling 😌
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 5 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen5">
+
+        <div class="emoji">
+          😂
+        </div>
+
+        <h2>
+          Anti-Boring Machine
+        </h2>
+
+        <p>
+          Side effects may include
+          random smiling.
+        </p>
+
+
+        <div class="card">
+
+          <div
+            class="message"
+            id="funnyMessage">
+
+            I am ready
+            to make you laugh.
+
+          </div>
+
+
+          <button
+            class="primary"
+            onclick="funnyMessage()">
+
+            MAKE ME LAUGH 😂
+
+          </button>
+
+
+          <button
+            class="secondary"
+            onclick="nextScreen()">
+
+            I laughed. Unfortunately. 😂
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 6 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen6">
+
+        <div class="emoji">
+          💌
+        </div>
+
+        <h2>
+          A Little Letter
+        </h2>
+
+
+        <div class="letter">
+
+          <p>
+            Hey you,
+          </p>
+
+
+          <p>
+            I know you're probably not
+            feeling your best right now,
+            and I wish I could magically
+            take away all the discomfort.
+          </p>
+
+
+          <p>
+            Since I can't do that,
+            I'll do the next best thing...
+            annoy you, make you laugh,
+            send you virtual hugs,
+            and remind you that you're
+            very special to me. ❤️
+          </p>
+
+
+          <p>
+            You don't have to be happy
+            all the time.
+
+            You don't have to pretend
+            you're okay.
+          </p>
+
+
+          <p>
+            Just be yourself.
+
+            I'll still be here. 🫶
+          </p>
+
+
+          <p>
+            Now smile a little.
+
+            That's an order. 😌❤️
+          </p>
+
+
+          <p>
+            — Someone who cares about
+            you a lot ❤️
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary"
+          onclick="nextScreen()">
+
+          One More Thing... ✨
+
+        </button>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 7 - APPLE MUSIC -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen7">
+
+        <div class="emoji">
+          🎵
+        </div>
+
+        <h2>
+          Our Little Song 🎶
+        </h2>
+
+        <p>
+          This one is for you. ❤️
+        </p>
+
+
+        <div class="music-box">
+
+          <div class="music-icon">
+            🎧
+          </div>
+
+
+          <h3>
+            Ha Chandra Tujhyasathi
+          </h3>
+
+
+          <p>
+            Now play the song...
+            and just listen for a moment. ❤️
+          </p>
+
+
+          <!-- APPLE MUSIC -->
+
+          <iframe
+            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+            frameborder="0"
+            height="175"
+            style="
+              width:100%;
+              max-width:660px;
+              overflow:hidden;
+              border-radius:10px;
+            "
+            sandbox="
+              allow-forms
+              allow-popups
+              allow-same-origin
+              allow-scripts
+              allow-storage-access-by-user-activation
+              allow-top-navigation-by-user-activation
+            "
+            src="https://embed.music.apple.com/in/song/ha-chandra-tujhyasathi/1657401589">
+          </iframe>
+
+        </div>
+
+
+        <button
+          class="secondary"
+          onclick="songQuestion()">
+
+          Did you like the song? 🥺
+
+        </button>
+
+
+        <button
+          class="primary"
+          onclick="nextScreen()">
+
+          Continue ❤️
+
+        </button>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 8 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen8">
+
+        <div class="emoji">
+          ✨
+        </div>
+
+        <h2>
+          One Last Surprise
+        </h2>
+
+
+        <div class="card">
+
+          <div
+            class="surprise-box"
+            id="surpriseBox">
+
+            <div class="surprise-emoji">
+              🎁
+            </div>
+
+            <p>
+              There is something
+              inside...
+            </p>
+
+          </div>
+
+
+          <button
+            class="primary"
+            onclick="openSurprise()">
+
+            OPEN IT 🎁
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- SCREEN 9 -->
+      <!-- ================================================= -->
+
+      <section
+        class="screen"
+        id="screen9">
+
+        <div class="forever">
+          ❤️
+        </div>
+
+        <h2>
+          Okay... Serious Question
+        </h2>
+
+
+        <div class="card">
+
+          <p>
+            After all the chocolates...
+          </p>
+
+          <p>
+            After all the hugs...
+          </p>
+
+          <p>
+            After Ollie and Chaarvi
+            have officially joined
+            our relationship... 😂
+          </p>
+
+
+          <h2>
+            Will you stay with us forever?
+            🥺❤️
+          </h2>
+
+
+          <div class="buttons">
+
+            <button
+              class="yes-button"
+              onclick="foreverYes()">
+
+              YES ❤️
+
+            </button>
+
+
+            <button
+              class="no-button"
+              id="noButton"
+              onclick="moveNoButton()">
+
+              No 😒
+
+            </button>
+
+          </div>
+
+
+          <p
+            id="foreverMessage"
+            class="small">
+          </p>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =====================================================
+       SCREEN NAVIGATION
+    ===================================================== */
+
+    let currentScreen = 1;
+
+    const totalScreens = 9;
+
+
+    function showScreen(number) {
+
+      document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+          screen.classList.remove("active");
+
+        });
+
+
+      const selectedScreen =
+        document.getElementById(
+          "screen" + number
+        );
+
+
+      if (selectedScreen) {
+
+        selectedScreen.classList.add("active");
+
+      }
+
+
+      currentScreen = number;
+
+      updateProgress();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      createHearts(8);
+
+    }
+
+
+    function nextScreen() {
+
+      if (currentScreen < totalScreens) {
+
+        showScreen(
+          currentScreen + 1
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       PROGRESS
+    ===================================================== */
+
+    function updateProgress() {
+
+      const percentage =
+        ((currentScreen - 1) /
+          (totalScreens - 1)) *
+        100;
+
+
+      document
+        .getElementById("progressBar")
+        .style.width =
+        percentage + "%";
+
+    }
+
+
+    /* =====================================================
+       FLOATING HEARTS
+    ===================================================== */
+
+    function createHeart() {
+
+      const heart =
+        document.createElement("div");
+
+
+      heart.className = "heart";
+
+
+      const hearts = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘",
+        "🌸",
+        "✨"
+      ];
+
+
+      heart.innerHTML =
+        hearts[
+          Math.floor(
+            Math.random() *
+            hearts.length
+          )
+        ];
+
+
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+      heart.style.fontSize =
+        15 +
+        Math.random() * 25 +
+        "px";
+
+
+      heart.style.animationDuration =
+        4 +
+        Math.random() * 5 +
+        "s";
+
+
+      document.body.appendChild(
+        heart
+      );
+
+
+      setTimeout(() => {
+
+        heart.remove();
+
+      }, 9000);
+
+    }
+
+
+    function createHearts(count = 15) {
+
+      for (
+        let i = 0;
+        i < count;
+        i++
+      ) {
+
+        setTimeout(() => {
+
+          createHeart();
+
+        }, i * 100);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       OLLIE
+    ===================================================== */
+
+    function petMessage() {
+
+      const messages = [
+
+        "Ollie says: You are officially too cute today. 🐱❤️",
+
+        "Ollie wants cuddles. Immediately. No negotiations. 🐱🫂",
+
+        "Ollie has diagnosed you with a severe case of being adorable. 😂",
+
+        "Ollie says: Forget everything. Take a nap. 😴🐱",
+
+        "Ollie says: I'm watching him. He better treat you well. 👀🐱",
+
+        "Ollie says: You're my favorite human. Don't tell Chaarvi. 🤫🐱"
+
+      ];
+
+
+      document
+        .getElementById("petMessage")
+        .innerText =
+        messages[
+          Math.floor(
+            Math.random() *
+            messages.length
+          )
+        ];
+
+
+      createHearts(10);
+
+    }
+
+
+    /* =====================================================
+       CHAARVI
+    ===================================================== */
+
+    function dogMessage() {
+
+      const messages = [
+
+        "Chaarvi gives you the biggest virtual hug ever. 🐶🫂",
+
+        "Chaarvi says: No sadness allowed today. ❤️🐶",
+
+        "Chaarvi has arrived with emotional support. 🐶❤️",
+
+        "Chaarvi says: You're my favorite human today. ❤️",
+
+        "Chaarvi wants snacks. But mostly she wants you happy. 🐶💕",
+
+        "Chaarvi says: Come here. It's cuddle time. 🐶🫂"
+
+      ];
+
+
+      document
+        .getElementById("petMessage")
+        .innerText =
+        messages[
+          Math.floor(
+            Math.random() *
+            messages.length
+          )
+        ];
+
+
+      createHearts(10);
+
+    }
+
+
+    /* =====================================================
+       CHOCOLATE
+    ===================================================== */
+
+    function chocolateRain() {
+
+      document
+        .getElementById("chocolateMessage")
+        .innerText =
+        "🍫 🍫 🍫 CHOCOLATE INCOMING! 🍫 🍫 🍫";
+
+
+      for (
+        let i = 0;
+        i < 30;
+        i++
+      ) {
+
+        setTimeout(() => {
+
+          const chocolate =
+            document.createElement("div");
+
+
+          chocolate.className =
+            "heart";
+
+
+          chocolate.innerHTML =
+            "🍫";
+
+
+          chocolate.style.left =
+            Math.random() * 100 +
+            "vw";
+
+
+          chocolate.style.fontSize =
+            "30px";
+
+
+          chocolate.style.animationDuration =
+            2 +
+            Math.random() * 3 +
+            "s";
+
+
+          document.body.appendChild(
+            chocolate
+          );
+
+
+          setTimeout(() => {
+
+            chocolate.remove();
+
+          }, 5000);
+
+        }, i * 80);
+
+      }
+
+
+      confetti();
+
+    }
+
+
+    /* =====================================================
+       HUG
+    ===================================================== */
+
+    function giveHug() {
+
+      document
+        .getElementById("hugMessage")
+        .innerText =
+        "🫂🫂🫂 HERE'S YOUR HUG 🫂🫂🫂\n\n" +
+        "No letting go until you smile. ❤️";
+
+
+      createHearts(30);
+
+      confetti();
+
+    }
+
+
+    /* =====================================================
+       FUNNY MESSAGES
+    ===================================================== */
+
+    function funnyMessage() {
+
+      const messages = [
+
+        "Breaking News 🚨: Local girl is too cute. Scientists are confused. 😂",
+
+        "Doctor: You need rest.\nMe: I prescribe cuddles. 👨‍⚕️🫂",
+
+        "Your current status: 10% battery, 90% attitude. 😂",
+
+        "I tried to find a cure for bad moods...\nApparently I'm the cure. 😌",
+
+        "If being adorable was illegal, you'd be serving life. 🚔❤️",
+
+        "Ollie and Chaarvi have formed a committee to make you smile. 🐱🐶",
+
+        "Emergency alert 🚨: Someone hasn't smiled in the last 5 minutes.",
+
+        "Your daily reminder: You're someone's favorite person. ❤️",
+
+        "Scientists discovered something shocking...\nYou're still adorable even when you're grumpy. 😂❤️"
+
+      ];
+
+
+      document
+        .getElementById("funnyMessage")
+        .innerText =
+        messages[
+          Math.floor(
+            Math.random() *
+            messages.length
+          )
+        ];
+
+
+      createHearts(12);
+
+    }
+
+
+    /* =====================================================
+       SONG
+    ===================================================== */
+
+    function songQuestion() {
+
+      alert(
+        "🥺 Be honest...\n\n" +
+        "Did you like the song?\n\n" +
+        "Because I picked it thinking about you ❤️"
+      );
+
+    }
+
+
+    /* =====================================================
+       SURPRISE
+    ===================================================== */
+
+    function openSurprise() {
+
+      const box =
+        document.getElementById(
+          "surpriseBox"
+        );
+
+
+      box.innerHTML = `
+
+        <div class="surprise-emoji">
+          🥹❤️
+        </div>
+
+        <p>
+          Surprise!
+        </p>
+
+        <p>
+          You're stuck with me.
+          Sorry. 😌❤️
+        </p>
+
+      `;
+
+
+      createHearts(60);
+
+      confetti();
+
+
+      setTimeout(() => {
+
+        nextScreen();
+
+      }, 3500);
+
+    }
+
+
+    /* =====================================================
+       FOREVER YES
+    ===================================================== */
+
+    function foreverYes() {
+
+      document
+        .getElementById(
+          "foreverMessage"
+        )
+        .innerText =
+        "🥹❤️ Ohhhhhh you have made our day!!!!❤️🥹";
+
+
+      createHearts(100);
+
+      confetti();
+
+    }
+
+
+    /* =====================================================
+       NO BUTTON
+    ===================================================== */
+
+    function moveNoButton() {
+
+      const button =
+        document.getElementById(
+          "noButton"
+        );
+
+
+      const x =
+        Math.random() * 220 - 110;
+
+
+      const y =
+        Math.random() * 160 - 80;
+
+
+      button.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+
+      document
+        .getElementById(
+          "foreverMessage"
+        )
+        .innerText =
+        "Nice try. 😌❤️";
+
+    }
+
+
+    /* =====================================================
+       CONFETTI
+    ===================================================== */
+
+    function confetti() {
+
+      const symbols = [
+        "❤️",
+        "💕",
+        "✨",
+        "🌸",
+        "🎉",
+        "💖",
+        "🥰"
+      ];
+
+
+      for (
+        let i = 0;
+        i < 70;
+        i++
+      ) {
+
+        const piece =
+          document.createElement(
+            "div"
+          );
+
+
+        piece.className =
+          "confetti";
+
+
+        piece.innerHTML =
+          symbols[
+            Math.floor(
+              Math.random() *
+              symbols.length
+            )
+          ];
+
+
+        piece.style.left =
+          Math.random() * 100 +
+          "vw";
+
+
+        piece.style.fontSize =
+          12 +
+          Math.random() * 20 +
+          "px";
+
+
+        piece.style.animationDuration =
+          2 +
+          Math.random() * 2 +
+          "s";
+
+
+        document.body.appendChild(
+          piece
+        );
+
+
+        setTimeout(() => {
+
+          piece.remove();
+
+        }, 4000);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       INITIALIZATION
+    ===================================================== */
+
+    updateProgress();
+
+    createHearts(10);
+
+  </script>
+
+</body>
+</html>
